@@ -1,351 +1,299 @@
+:root {
+    --primary-color: #1a365d;     
+    --secondary-color: #3b82f6;   
+    --accent-color: #f59e0b;      
+    --background-light: #f0f9ff;  
+    --background-grey: #f8fafc;   
+    --text-color-white: #ffffff;
+    --text-color-dark: #1e293b;   
+    --danger-color: #ef4444;      
+    --danger-bg-color: #fef2f2;   
+    --header-height: 100vh;
+    --content-max-width: 1024px;  
+    --footer-padding: 24px;
+    --border-radius: 12px;        
+    --transition: all 0.3s ease;
+}
+
 body.welcome-page {
     background: inherit;
-    overflow: auto;
+    overflow-x: hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+    color: var(--text-color-dark);
+    line-height: 1.5;
 }
 
 .welcome {
     background-image: $welcomePageBackground;
-    background-color: #fff;
+    background-color: var(--text-color-white);
+    min-height: var(--header-height);
+    position: relative;
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color), #0f172a);
+    width: 100%;
+    height: var(--header-height);
     display: flex;
     flex-direction: column;
-    font-family: $welcomePageFontFamily;
-    justify-content: space-between;
-    min-height: 100dvh;
     position: relative;
+    overflow: hidden;
 
-    .header {
-        background-image: $welcomePageHeaderBackground;
-        background-position: $welcomePageHeaderBackgroundPosition;
-        background-repeat: $welcomePageHeaderBackgroundRepeat;
-        background-size: $welcomePageHeaderBackgroundSize;
-        padding-bottom: $welcomePageHeaderPaddingBottom;
-        background-color: #131519;
-        overflow: hidden;
-        position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1) 0%, transparent 60%);
+    }
+}
 
-        .header-container {
-            display: $welcomePageHeaderContainerDisplay;
-            flex-direction: column;
-            margin: $welcomePageHeaderContainerMargin;
-            z-index: $zindex2;
-            align-items: center;
-            position: relative;
-            max-width: 688px;
-        }
+.toolbar {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 16px 0;
+    position: relative;
+    z-index: 1;
+}
 
-        .header-watermark-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            margin-top: calc(20px - #{$welcomePageHeaderContainerMarginTop});
-        }
+.toolbar-content {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        .header-text-title {
-            color: $welcomePageTitleColor;
-            font-size: $welcomePageHeaderTextTitleFontSize;
-            font-weight: $welcomePageHeaderTextTitleFontWeight;
-            line-height: $welcomePageHeaderTextTitleLineHeight;
-            margin-bottom: $welcomePageHeaderTextTitleMarginBottom;
-            max-width: $welcomePageHeaderTitleMaxWidth;
-            opacity: $welcomePageHeaderTextTitleOpacity;
-            text-align: $welcomePageHeaderTextAlign;
-        }
+.welcome-page-settings {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
-        .header-text-subtitle {
-            color: #fff;
-            font-size: 20px;
-            font-weight: 600;
-            line-height: 26px;
-            margin: 16px 0 32px 0;
-            text-align: $welcomePageHeaderTextAlign;
+.settings-button {
+    color: var(--text-color-white);
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-        }
-
-        .not-allow-title-character-div {
-            color: #f03e3e;
-            background-color: #fff;
-            font-size: 12px;
-            font-weight: 600;
-            margin: 10px 0px 5px 0px;
-            text-align: $welcomePageHeaderTextAlign;
-            border-radius: 5px;
-            padding: 5px;
-            .not-allow-title-character-text {
-                float: right;
-                line-height: 1.9;
-            };
-            .jitsi-icon {
-                margin-right: 9px;
-                float: left;
-
-
-                svg {
-                    fill:#f03e3e;
-
-                    & > *:first-child {
-                        fill: none !important;
-                    }
-                }
-            }
-
-        }
-
-        .insecure-room-name-warning {
-            align-items: center;
-            color: rgb(215, 121, 118);
-            font-weight: 600;
-            display: flex;
-            flex-direction: row;
-            margin-top: 15px;
-            max-width: 480px;
-            width: $welcomePageEnterRoomWidth;
-
-            .jitsi-icon {
-                margin-right: 15px;
-
-                svg {
-                    fill: rgb(215, 121, 118);
-
-                    & > *:first-child {
-                        fill: none !important;
-                    }
-                }
-            }
-        }
-
-        ::placeholder {
-            color: #253858;
-        }
-
-        #enter_room {
-            display: $welcomePageEnterRoomDisplay;
-            align-items: center;
-            max-width: 480px;
-            width: $welcomePageEnterRoomWidth;
-            z-index: $zindex2;
-            height: fit-content;
-
-            .join-meeting-container {
-                margin: $welcomePageEnterRoomMargin;
-                padding: $welcomePageEnterRoomPadding;
-                border-radius: 4px;
-                background-color: #fff;
-                display: flex;
-                width: 100%;
-                text-align: left;
-                color: #253858;
-            }
-
-            .enter-room-input-container {
-                flex-grow: 1;
-                padding-right: 4px;
-
-                .enter-room-input {
-                    border-radius: 4px;
-                    border: 0;
-                    background: #fff;
-                    display: inline-block;
-                    height: 50px;
-                    width: 100%;
-                    font-size: 14px;
-                    padding-left: 10px;
-
-                    &.focus-visible {
-                        outline: auto 2px #005fcc;
-                    }
-                }
-            }
-
-        }
-
-        #moderated-meetings {
-            max-width: calc(100% - 40px);
-            padding: 16px 0 0;
-            width: $welcomePageEnterRoomWidth;
-            text-align: center;
-
-            a {
-                color: inherit;
-                font-weight: 600;
-            }
-        }
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
     }
 
-    .tab-container {
-        font-size: 16px;
-        position: relative;
-        text-align: left;
-        display: $welcomePageTabContainerDisplay;
-        flex-direction: column;
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
 
-        .tab-content{
-            display: $welcomePageTabContentDisplay;
-            height: 250px;
-            margin: 5px 0px;
-            overflow: hidden;
-            flex-grow: 1;
-            position: relative;
-        }
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 24px;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+}
 
-        .tab-buttons {
-            background-color: #c7ddff;
-            border-radius: 6px;
-            color: #0163FF;
-            font-size: 14px;
-            line-height: 18px;
-            margin: 4px;
-            display: $welcomePageTabButtonsDisplay;
+.header-text-title {
+    color: var(--text-color-white);
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
 
-            [role="tab"] {
-                background-color: #c7ddff;
-                border-radius: 7px;
-                cursor: pointer;
-                display: $welcomePageTabDisplay;
-                flex-grow: 1;
-                margin: 2px;
-                padding: 7px 0;
-                text-align: center;
-                color: inherit;
-                border: 0;
+.header-text-subtitle {
+    color: var(--text-color-white);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 48px;
+    opacity: 0.9;
+    text-align: center;
+}
 
-                &[aria-selected="true"] {
-                    background-color: #FFF;
-                }
-            }
+#enter_room {
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
-        }
+.join-meeting-container {
+    background-color: var(--text-color-white);
+    border-radius: var(--border-radius);
+    padding: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+}
+
+.enter-room-input {
+    width: 100%;
+    height: 56px;
+    font-size: 1.125rem;
+    border: 2px solid transparent;
+    border-radius: calc(var(--border-radius) - 4px);
+    padding: 0 16px;
+    transition: var(--transition);
+    
+    &:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        background-color: var(--background-light);
     }
 
-    .welcome-page-button {
-        border: 0;
-        font-size: 14px;
-        background: #0074E0;
-        border-radius: 3px;
-        color: #FFFFFF;
-        cursor: pointer;
-        padding: 16px 20px;
+    &::placeholder {
+        color: #94a3b8;
+    }
+}
 
-        &:focus-within {
-            outline: auto 2px #022e61;
-        }
+.welcome-page-button {
+    width: 100%;
+    height: 56px;
+    background-color: var(--secondary-color);
+    color: var(--text-color-white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    
+    &:hover {
+        background-color: darken(#3b82f6, 10%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+    
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(59,130,246,0.5);
+    }
+}
+
+.not-allow-title-character-div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background-color: var(--danger-bg-color);
+    border-radius: var(--border-radius);
+    margin-top: 8px;
+}
+
+.not-allow-title-character-text {
+    color: var(--danger-color);
+    font-size: 0.875rem;
+}
+
+#moderated-meetings {
+    margin-top: 16px;
+    font-size: 0.875rem;
+    color: var(--text-color-white);
+    opacity: 0.8;
+    text-align: center;
+    max-width: 480px;
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --content-max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .toolbar {
+        padding: 12px 0;
+    }
+
+    .toolbar-content {
+        padding: 0 16px;
     }
 
     .welcome-page-settings {
-        background: rgba(255, 255, 255, 0.38);
-        border-radius: 3px;
-        color: $welcomePageDescriptionColor;
-        padding: 4px;
-        position: absolute;
-        top: calc(35px - #{$welcomePageHeaderContainerMarginTop});
-        right: 0;
-        z-index: $zindex2;
+        gap: 12px;
+    }
 
-        * {
-            cursor: pointer;
-            font-size: 32px;
-        }
+    .settings-button {
+        padding: 6px 10px;
 
-        .toolbox-icon {
-            height: 24px;
-            width: 24px;
+        svg {
+            width: 18px;
+            height: 18px;
         }
     }
 
-    .welcome-watermark {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+    .header-text-title {
+        font-size: 2.5rem;
+    }
 
-        .watermark.leftwatermark {
-            width: $welcomePageWatermarkWidth;
-            height: $welcomePageWatermarkHeight;
+    .header-text-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .toolbar {
+        padding: 8px 0;
+    }
+
+    .toolbar-content {
+        padding: 0 12px;
+    }
+
+    .welcome-page-settings {
+        gap: 8px;
+    }
+
+    .settings-button {
+        padding: 4px 8px;
+
+        svg {
+            width: 16px;
+            height: 16px;
         }
     }
 
-    &.without-content {
-        .welcome-card {
-            min-width: 500px;
-            max-width: 580px;
-        }
+    .header-text-title {
+        font-size: 2rem;
     }
 
-    &.without-footer {
-        justify-content: start;
+    .header-text-subtitle {
+        font-size: 1.125rem;
+        margin-bottom: 24px;
     }
 
-    .welcome-cards-container {
-        color:#131519;
-        padding-top: 40px;
-    }
-
-    .welcome-card-column {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        max-width: 688px;
-        margin: auto;
-
-        > div {
-            margin-bottom: 16px;
-        }
-    }
-
-    .welcome-card-text {
-        padding: 32px;
-    }
-
-    .welcome-card {
-        width: 100%;
-        border-radius: 8px;
-
-        &--dark {
-            background: #444447;
-            color: #fff;
-        }
-
-        &--blue {
-            background: #D5E5FF;
-        }
-
-        &--grey {
-            background: #F2F3F4;
-        }
-    }
-
-    .welcome-footer {
-        background: #131519;
-        color: #fff;
-        margin-top: 40px;
-        position: relative;
-    }
-
-    .welcome-footer-centered {
-        max-width: 688px;
-        margin: 0 auto;
-    }
-
-    .welcome-footer-padded {
-        padding: 0px 16px;
-    }
-
-    .welcome-footer-row-block {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #424447;
-
-        &:last-child {
-            border-bottom: none;
-        }
-    }
-
-    .welcome-footer--row-1 {
-        padding: 40px 0 24px 0;
-    }
-
-    .welcome-footer-row-1-text {
-        max-width: 200px;
-        margin-right: 16px;
+    .enter-room-input,
+    .welcome-page-button {
+        height: 48px;
+        font-size: 1rem;
     }
 }
