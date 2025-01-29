@@ -82,7 +82,7 @@
     },
     "calendarSync": {
         "addMeetingURL": "Add a meeting link",
-        "confirmAddLink": "Do you want to add a Jitsi link to this event?",
+        "confirmAddLink": "Do you want to add a MDES link to this event?",
         "error": {
             "appConfiguration": "Calendar integration is not properly configured.",
             "generic": "An error has occurred. Please check your calendar settings or try refreshing the calendar.",
@@ -458,11 +458,11 @@
         "stopRecordingWarning": "Are you sure you would like to stop the recording?",
         "stopStreamingWarning": "Are you sure you would like to stop the live streaming?",
         "streamKey": "Live stream key",
-        "thankYou": "Thank you for using {{appName}}!",
+        "thankYou": "Thank you for using MDES-Meet!",
         "token": "token",
         "tokenAuthFailed": "Sorry, you're not allowed to join this call.",
         "tokenAuthFailedReason": {
-            "audInvalid": "Invalid `aud` value. It should be `jitsi`.",
+            "audInvalid": "Invalid `aud` value. It should be `MDES`.",
             "contextNotFound": "The `context` object is missing from the payload.",
             "expInvalid": "Invalid `exp` value.",
             "featureInvalid": "Invalid feature: {{feature}}, most likely not implemented yet.",
@@ -534,7 +534,7 @@
         "answer": "Answer",
         "audioCallTitle": "Incoming call",
         "decline": "Dismiss",
-        "productLabel": "from Jitsi Meet",
+        "productLabel": "from MDES Meet",
         "videoCallTitle": "Incoming video call"
     },
     "info": {
@@ -746,7 +746,7 @@
         "dataChannelClosedDescriptionWithAudio": "The bridge channel is down and thus disruptions to audio and video may occur.",
         "dataChannelClosedWithAudio": "Audio and video quality may be impaired",
         "disabledIframe": "Embedding is only meant for demo purposes, so this call will disconnect in {{timeout}} minutes.",
-        "disabledIframeSecondary": "Embedding {{domain}} is only meant for demo purposes, so this call will disconnect in {{timeout}} minutes. Please use <a href='{{jaasDomain}}' rel='noopener noreferrer' target='_blank'>Jitsi as a Service</a> for production embedding!",
+        "disabledIframeSecondary": "Embedding {{domain}} is only meant for demo purposes, so this call will disconnect in {{timeout}} minutes. Please use <a href='{{jaasDomain}}' rel='noopener noreferrer' target='_blank'>MDES as a Service</a> for production embedding!",
         "disconnected": "disconnected",
         "displayNotifications": "Display notifications for",
         "dontRemindMe": "Do not remind me",
@@ -798,7 +798,7 @@
         "noiseSuppressionDesktopAudioDescription": "Extra noise suppression can't be enabled while sharing desktop audio, please disable it and try again.",
         "noiseSuppressionFailedTitle": "Failed to start extra noise suppression",
         "noiseSuppressionStereoDescription": "Extra noise suppression is not currently supported with stereo audio.",
-        "oldElectronClientDescription1": "You appear to be using an old version of the Jitsi Meet client which has known security vulnerabilities. Please make sure you update to our ",
+        "oldElectronClientDescription1": "You appear to be using an old version of the MDES Meet client which has known security vulnerabilities. Please make sure you update to our ",
         "oldElectronClientDescription2": "latest build",
         "oldElectronClientDescription3": " now!",
         "participantWantsToJoin": "Wants to join the meeting",
@@ -1540,15 +1540,15 @@
         "go": "GO",
         "goSmall": "GO",
         "headerSubtitle": "Secure and high quality meetings",
-        "headerTitle": "Jitsi Meet",
+        "headerTitle": "MDES Meet",
         "info": "Dial-in info",
-        "jitsiOnMobile": "Jitsi on mobile – download our apps and start a meeting from anywhere",
+        "jitsiOnMobile": "MDES on mobile – download our apps and start a meeting from anywhere",
         "join": "CREATE / JOIN",
         "logo": {
             "calendar": "Calendar logo",
             "desktopPreviewThumbnail": "Desktop preview thumbnail",
             "googleLogo": "Google Logo",
-            "logoDeepLinking": "Jitsi meet logo",
+            "logoDeepLinking": "MDES meet logo",
             "microsoftLogo": "Microsoft logo",
             "policyLogo": "Policy logo"
         },

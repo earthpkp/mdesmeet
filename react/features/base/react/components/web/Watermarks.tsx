@@ -203,7 +203,7 @@ class Watermarks extends Component<IProps, State> {
                     className = 'poweredby'
                     href = 'https://www.mdes.go.th/'
                     target = '_new'>
-                    <span>{ t('poweredby') } jitsi.org</span>
+                    <span>{ t('poweredby') } www.mdes.go.th</span>
                 </a>
             );
         }

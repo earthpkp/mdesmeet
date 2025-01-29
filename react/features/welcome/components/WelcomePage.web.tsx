@@ -11,6 +11,7 @@ import CalendarList from '../../calendar-sync/components/CalendarList.web';
 import RecentList from '../../recent-list/components/RecentList.web';
 import SettingsButton from '../../settings/components/web/SettingsButton';
 import { SETTINGS_TABS } from '../../settings/constants';
+import Toolbar from './Toolbar';
 
 import { AbstractWelcomePage, IProps, _mapStateToProps } from './AbstractWelcomePage';
 import Tabs from './Tabs';
@@ -200,27 +201,16 @@ class WelcomePage extends AbstractWelcomePage<IProps> {
             <div
                 className={`welcome ${contentClassName}`}
                 id='welcome_page'>
-                <div className='header'>
-                    <div className='header-container'>
-                        <div className='header-watermark-container'>
-                            <div className='toolbar-content'>
-                                {/* <Watermarks
-                                    defaultJitsiLogoURL={DEFAULT_WELCOME_PAGE_LOGO_URL}
-                                    noMargins={true} /> */}
-                                <div className='welcome-page-settings'>
-                                    <SettingsButton
-                                        defaultTab={SETTINGS_TABS.CALENDAR}
-                                        isDisplayedOnWelcomePage={true} />
-                                    {showAdditionalToolbarContent
-                                        ? <div
-                                            className='settings-toolbar-content'
-                                            ref={this._setAdditionalToolbarContentRef} />
-                                        : null
-                                    }
-                                </div>
-                            </div>
-                        </div>
 
+                <div className='header'>
+
+                    <div className='header-container'>
+
+                        <Toolbar
+                            DEFAULT_WELCOME_PAGE_LOGO_URL={DEFAULT_WELCOME_PAGE_LOGO_URL || ''}
+                            showAdditionalToolbarContent={showAdditionalToolbarContent}
+                            interfaceConfig={interfaceConfig}
+                        />
                         <h1 className='header-text-title'>
                             {t('welcomepage.headerTitle')}
                         </h1>
